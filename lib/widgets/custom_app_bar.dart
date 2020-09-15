@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/state_manager.dart';
+import 'package:omnikit/controllers/cart_products.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
@@ -11,7 +13,8 @@ class CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.amberAccent.withOpacity((scrollOffset/350).clamp(0, 1).toDouble()),
+      color: Colors.amberAccent
+          .withOpacity((scrollOffset / 350).clamp(0, 1).toDouble()),
       child: SafeArea(
         child: Row(
           children: [
@@ -38,10 +41,13 @@ class CustomAppBar extends StatelessWidget {
               icon: Icon(FontAwesomeIcons.userCircle),
               onPressed: () {},
             ),
-            IconButton(
-              onPressed: () => Navigator.of(context).pop(),
-              icon: Icon(Icons.logout),
-            ),
+            GetBuilder<UserCartProductsController>(builder: (val) {
+              val.emptyCart();
+              return IconButton(
+                onPressed: () => Navigator.of(context).pop(),
+                icon: Icon(Icons.logout),
+              );
+            }),
           ],
         ),
       ),

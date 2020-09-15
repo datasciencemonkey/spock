@@ -13,6 +13,11 @@ class UserCartProductsController extends GetxController {
 // getter for user
   String get user => _user;
 
+ void emptyCart() {
+    _items.clear();
+    // _items = List<Content>();
+  }
+
 // add product to cart
   void addProduct(Content item) {
     _items.add(item);
