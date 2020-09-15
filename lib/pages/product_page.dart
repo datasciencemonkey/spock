@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:omnikit/controllers/cart_products.dart';
+import 'package:omnikit/models/models.dart';
+
 import 'package:omnikit/pages/pages.dart';
 
-class ProductPage extends StatefulWidget {
+class ProductPage extends StatelessWidget {
   final String itemName;
   final String itemPrice;
   final String itemDescription;
@@ -19,11 +23,6 @@ class ProductPage extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _ProductPageState createState() => _ProductPageState();
-}
-
-class _ProductPageState extends State<ProductPage> {
-  @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
@@ -31,7 +30,7 @@ class _ProductPageState extends State<ProductPage> {
         centerTitle: true,
         elevation: 0.0,
         title: Text(
-          widget.itemName,
+          itemName,
         ),
         actions: [
           // FlatButton(child:Image(image:AssetImage('assets/images/omnikit.png'),),onPressed: (){}),
@@ -55,8 +54,8 @@ class _ProductPageState extends State<ProductPage> {
           Expanded(
             child: Image(
               width: screenSize.width,
-              fit: widget.isFeatured ? BoxFit.fill : BoxFit.cover,
-              image: AssetImage(widget.itemImage),
+              fit: isFeatured ? BoxFit.fill : BoxFit.cover,
+              image: AssetImage(itemImage),
             ),
           ),
           Padding(
@@ -74,7 +73,7 @@ class _ProductPageState extends State<ProductPage> {
           Padding(
             padding: const EdgeInsets.fromLTRB(10.0, 2, 10, 5),
             child: Text(
-              'Product: ${widget.itemName}',
+              'Product: $itemName',
               textAlign: TextAlign.left,
               style: TextStyle(
                 fontSize: 14.0,
@@ -86,7 +85,7 @@ class _ProductPageState extends State<ProductPage> {
             padding: const EdgeInsets.fromLTRB(10.0, 2, 10, 5),
             child: Container(
               child: Text(
-                widget.itemDescription,
+                itemDescription,
                 textAlign: TextAlign.left,
                 style: TextStyle(
                   fontSize: 16.0,
@@ -105,7 +104,7 @@ class _ProductPageState extends State<ProductPage> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(10.0, 2, 10, 5),
                 child: Text(
-                  'Price: ${widget.itemPrice}',
+                  'Price: $itemPrice',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18.0),
                 ),
               ),
@@ -115,22 +114,42 @@ class _ProductPageState extends State<ProductPage> {
       ),
       bottomNavigationBar: Container(
         height: 70.0,
-        child: FlatButton(
-          color: Colors.amberAccent,
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (_) => CartPage(),
-            ),
-          ),
-          child: Text(
-            'Add to Cart',
-            style: TextStyle(
-              fontSize: 25.0,
+        child: GetBuilder<UserCartProductsController>(
+          builder: (val) => FlatButton(
+            color: Colors.amberAccent,
+            onPressed: () {
+              Content item = Content(
+                name: itemName,
+                imageUrl: itemImage,
+                price: itemPrice,
+                description: itemDescription,
+              );
+              val.addProduct(item);
+              _showSnackBar();
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (_) => CartPage(),
+              //   ),
+              // );
+              val.items.forEach((item) {
+                print('${item.name} was added to the cart');
+              });
+            },
+            child: Text(
+              'Add to Cart',
+              style: TextStyle(
+                fontSize: 25.0,
+              ),
             ),
           ),
         ),
       ),
     );
   }
+}
+
+_showSnackBar() {
+  Get.snackbar('Added to Cart', 'Your item has been added',
+      snackPosition: SnackPosition.TOP);
 }

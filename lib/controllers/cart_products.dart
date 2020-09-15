@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:omnikit/models/models.dart';
 
-class CartProducts with ChangeNotifier {
+class UserCartProductsController extends GetxController {
   List<Content> _items = [];
+  String _user;
 
   List<Content> get items {
     return [..._items];
@@ -10,6 +11,11 @@ class CartProducts with ChangeNotifier {
 
   void addProduct(Content item) {
     _items.add(item);
-    notifyListeners();
+    update();
+  }
+
+  void updateUser(String user) {
+    _user = user;
+    update();
   }
 }

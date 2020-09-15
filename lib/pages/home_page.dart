@@ -1,6 +1,8 @@
 import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:omnikit/controllers/cart_products.dart';
 import 'package:omnikit/pages/pages.dart';
 
 class HomePage extends StatefulWidget {
@@ -15,7 +17,6 @@ class _HomePageState extends State<HomePage> {
   String _email;
   String _password;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-
 
   @override
   Widget build(BuildContext context) {
@@ -110,26 +111,32 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.amberAccent,
                               borderRadius: BorderRadius.circular(30.0),
                             ),
-                            child: FlatButton(
-                              child: Text('Create Account',
-                                  style: TextStyle(
-                                    color: Colors.black87,
-                                    fontSize: 12.0,
-                                    fontWeight: FontWeight.w500,
-                                    letterSpacing: 2.0,
-                                  ),
-                                  textAlign: TextAlign.center),
-                              onPressed: () async{
-                                formKey.currentState.save();
-                                print('The email is $_email');
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => LandingPage(
-                                        email: _email,
-                                      ),
-                                    ));
-                              },
+                            child: GetBuilder<UserCartProductsController>(
+                              init: UserCartProductsController(),
+                              builder: (val) => FlatButton(
+                                child: Text('Create Account',
+                                    style: TextStyle(
+                                      color: Colors.black87,
+                                      fontSize: 12.0,
+                                      fontWeight: FontWeight.w500,
+                                      letterSpacing: 2.0,
+                                    ),
+                                    textAlign: TextAlign.center),
+                                onPressed: () async {
+                                  formKey.currentState.save();
+                                  print('The email is $_email');
+                                  String user =
+                                      _email.substring(0, _email.indexOf('@'));
+                                  val.updateUser(user);
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => LandingPage(
+                                          email: _email,
+                                        ),
+                                      ));
+                                },
+                              ),
                             ),
                           ),
                         ],
@@ -208,4 +215,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-
