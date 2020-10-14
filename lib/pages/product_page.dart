@@ -31,11 +31,13 @@ class ProductPage extends StatelessWidget {
         elevation: 0.0,
         title: Text(
           itemName,
+          style: TextStyle(color:Colors.black87),
         ),
         actions: [
           // FlatButton(child:Image(image:AssetImage('assets/images/omnikit.png'),),onPressed: (){}),
           IconButton(
             icon: Icon(FontAwesomeIcons.shoppingCart),
+            color: Colors.black,
             onPressed: () => Navigator.push(
               context,
               MaterialPageRoute(
@@ -116,7 +118,7 @@ class ProductPage extends StatelessWidget {
         height: 70.0,
         child: GetBuilder<UserCartProductsController>(
           builder: (val) => FlatButton(
-            color: Colors.amberAccent,
+            color: Theme.of(context).primaryColor,
             onPressed: () {
               Content item = Content(
                 name: itemName,

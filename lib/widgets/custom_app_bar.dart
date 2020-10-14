@@ -42,9 +42,9 @@ class CustomAppBar extends StatelessWidget {
               onPressed: () {},
             ),
             GetBuilder<UserCartProductsController>(builder: (val) {
-              val.emptyCart();
+              // val.emptyCart();
               return IconButton(
-                onPressed: () => Navigator.of(context).pop(),
+                onPressed: () => Navigator.of(context).popUntil((route) => route.isFirst),
                 icon: Icon(Icons.logout),
               );
             }),

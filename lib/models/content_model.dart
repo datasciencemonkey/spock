@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:meta/meta.dart';
+
 
 class Content {
   final String name;
@@ -11,8 +11,8 @@ class Content {
 
 
   const Content({
-    @required this.name,
-    @required this.imageUrl,
+    this.name,
+    this.imageUrl,
     this.title,
     this.price,
     this.description,
