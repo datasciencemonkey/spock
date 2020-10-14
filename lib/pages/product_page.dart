@@ -115,6 +115,7 @@ class ProductPage extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: Container(
+        width: screenSize.width,
         height: 70.0,
         child: GetBuilder<UserCartProductsController>(
           builder: (val) => FlatButton(
