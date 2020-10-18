@@ -54,10 +54,13 @@ class ProductPage extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Image(
-              width: screenSize.width,
-              fit: isFeatured ? BoxFit.fill : BoxFit.cover,
-              image: AssetImage(itemImage),
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
+                          child: Image(
+                width: screenSize.width,
+                fit: isFeatured ? BoxFit.fill : BoxFit.contain,
+                image: AssetImage(itemImage),
+              ),
             ),
           ),
           Padding(
