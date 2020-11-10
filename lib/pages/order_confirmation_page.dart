@@ -5,7 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:omnikit/controllers/cart_products.dart';
 class OrderConfirmation extends StatelessWidget {
-  var randGen = new Random();
+  final randGen = new Random();
   @override
   Widget build(BuildContext context) {
     return SafeArea(

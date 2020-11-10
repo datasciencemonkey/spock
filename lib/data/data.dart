@@ -15,6 +15,17 @@ final Content retailContent = Content(
 
 );
 
+final Content retailContent2 = Content(
+  name: 'Apple Watch Series 3',
+  imageUrl: Assets.alternateHero,
+  title: 'Apple Watch Series 3',
+  // videoUrl: Assets.sintelVideoUrl,
+  price: '\$199.99',
+  description:
+      'Low and high heart rate notifications. Emergency SOS. New Breathe watch faces. Automatic workout detection. Advanced features for runners like cadence and pace alerts. New head-to-head competitions. You can use Walkie-Talkie, make phone calls, and send messages. Listen to Apple Music¹ and Apple Podcasts. And use Siri in all-new ways. Apple Watch Series 3 lets you do it all right from your wrist',
+
+);
+
 final List<Content> deals = const [
   Content(
     imageUrl: Assets.firewood,

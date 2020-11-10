@@ -17,20 +17,20 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   ScrollController _scrollController;
   double _scrollOffset = 0.0;
- 
 
   @override
   void initState() {
     super.initState();
-    _scrollController = ScrollController()..addListener(() {
-      setState(() {
-        _scrollOffset = _scrollController.offset;
+    _scrollController = ScrollController()
+      ..addListener(() {
+        setState(() {
+          _scrollOffset = _scrollController.offset;
+        });
       });
-    });
   }
 
   @override
-  void dispose() { 
+  void dispose() {
     _scrollController.dispose();
     super.dispose();
   }
@@ -45,6 +45,7 @@ class _LandingPageState extends State<LandingPage> {
       appBar: PreferredSize(
         child: CustomAppBar(
           scrollOffset: _scrollOffset,
+
         ),
         preferredSize: Size(screenSize.width, 50.0),
       ),
@@ -54,6 +55,7 @@ class _LandingPageState extends State<LandingPage> {
           SliverToBoxAdapter(
             child: ContentHeader(
               featuredContent: retailContent,
+              alternateContent: retailContent2,
             ),
           ),
           SliverPadding(

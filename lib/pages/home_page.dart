@@ -3,7 +3,9 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:omnikit/controllers/cart_products.dart';
+
 import 'package:omnikit/pages/pages.dart';
+import 'dart:math';
 
 class HomePage extends StatefulWidget {
   @override
@@ -13,7 +15,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double _deviceHeight;
   double _deviceWidth;
-
+  String _userId;
   String _email;
   String _password;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
@@ -82,28 +84,36 @@ class _HomePageState extends State<HomePage> {
                               borderRadius: BorderRadius.circular(30.0),
                             ),
                             child: FlatButton(
-                              child: Text(
-                                'Login',
-                                style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 12.0,
-                                  fontWeight: FontWeight.w500,
-                                  letterSpacing: 2.0,
+                                child: Text(
+                                  'Login',
+                                  style: TextStyle(
+                                    color: Colors.black87,
+                                    fontSize: 12.0,
+                                    fontWeight: FontWeight.w500,
+                                    letterSpacing: 2.0,
+                                  ),
                                 ),
+                                onPressed: () {
+                                  //1. save the email
+                                  formKey.currentState.save();
+                                  // 2. generate a userID or payload to be scored with ESP
+                                  _userId = _assignUserID().toString();
+                                  //Route to the loading page to fetch results from ESP
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (_) => LoadingScreen(
+                                          id: _userId,
+                                          email: _email,
+                                        ),
+                                      ));
+
+                                  print(
+                                      'The email is $_email'); // log to the console.
+                                },
                               ),
-                              onPressed: () {
-                                formKey.currentState.save();
-                                print('The email is $_email');
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (_) => LandingPage(
-                                        email: _email,
-                                      ),
-                                    ));
-                              },
                             ),
-                          ),
+                          
                           Container(
                             width: MediaQuery.of(context).size.width * .3,
                             height: 60.0,
@@ -214,4 +224,9 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+}
+
+int _assignUserID() {
+  Random randX = Random();
+  return randX.nextInt(450)+51;
 }

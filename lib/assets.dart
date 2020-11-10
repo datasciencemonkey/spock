@@ -1,6 +1,7 @@
 class Assets {
   static const String _images = 'assets/images/';
-  static const String retailHero = '${_images}heroShoe.jpg';
+  static const String retailHero = '${_images}heroShoe.png';
+  static const String alternateHero = '${_images}okAppleWatch.jpg';
   static const String firewood = '${_images}firewood.jpg';
   static const String paperTowel = '${_images}paperTowel.png';
   static const String jeans = '${_images}jeans.png';
@@ -9,7 +10,8 @@ class Assets {
   static const String detergent = '${_images}detergent.png';
   static const String f1Shoe = '${_images}force1Shoe.png';
 
-  static const String okShawshankRedemption = '${_images}okShawshankRedemption.jpg';
+  static const String okShawshankRedemption =
+      '${_images}okShawshankRedemption.jpg';
   static const String okGodfather = '${_images}okGodfather.jpg';
   static const String okDarkknight = '${_images}okDarkknight.jpg';
   static const String okShindlerslist = '${_images}okShindlerslist.jpg';
@@ -24,5 +26,4 @@ class Assets {
   static const String okMeshRouter = '${_images}meshRouter.png';
   static const String okPodsPro = '${_images}podsPro.png';
   static const String okDigitalAssistant = '${_images}digitalAssistant.jpg';
-
 }
