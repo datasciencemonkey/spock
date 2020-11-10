@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:omnikit/services/churn_service.dart';
 
 class CustomerScoresController extends GetxController {
   dynamic _customerScoreData;
@@ -10,6 +11,11 @@ class CustomerScoresController extends GetxController {
   void addScores(dynamic customerScoreData) {
     _customerScoreData = customerScoreData;
     update();
+  }
+
+  void getChurnData(String id) async {
+    dynamic csData = await ChurnService().getCustomerScores(id);
+    addScores(csData); //json
   }
 
   // String get customerSegment => _customerSegment;

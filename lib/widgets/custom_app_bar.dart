@@ -7,22 +7,16 @@ import 'package:omnikit/controllers/customer_scores_model.dart';
 
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
+  final dynamic customerData;
 
   const CustomAppBar({
     Key key,
     this.scrollOffset = 0.0,
+    this.customerData,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // final String customerSegment =
-    //     customerData['events'][1]['event']['segment'];
-    // final String customerId = customerData['events'][1]['event']['user_id'];
-    // final String openSourceProbChurn =
-    //     customerData['events'][1]['event']['predict_value_y'];
-    // final String probChurn = customerData['events'][1]['event']['P_CHURN1'];
-    // final String probRetention = customerData['events'][1]['event']['P_CHURN0'];
-
     String customerSegment;
     String customerId;
     String openSourceProbChurn;
@@ -54,37 +48,52 @@ class CustomAppBar extends StatelessWidget {
               icon: Icon(FontAwesomeIcons.search),
               onPressed: () {},
             ),
-            IconButton(
-              icon: Icon(FontAwesomeIcons.userCircle),
-              onPressed: () {
-                Get.defaultDialog(
-                  title: "SAS AI Customer Analysis",
-                  // backgroundColor: Colors.tealAccent,
-                  content: Container(
-                    width: Get.width,
-                    child: GetBuilder<CustomerScoresController>(
-                      builder: (val) {
-                        customerSegment = val.customerScoreData['events'][1]
-                            ['event']['segment'];
-                        customerId = val.customerScoreData['events'][1]['event']
-                            ['user_id'];
-                        openSourceProbChurn = val.customerScoreData['events'][1]
-                            ['event']['predict_value_y'];
-                        probChurn = val.customerScoreData['events'][1]['event']
-                            ['P_CHURN1'];
-                        probRetention = val.customerScoreData['events'][1]
-                            ['event']['P_CHURN0'];
-                        return Text(
+            GetBuilder<CustomerScoresController>(
+              init: CustomerScoresController(),
+              builder: (val) {
+                if (customerData != null) {
+                  val.addScores(customerData);
+                  customerSegment =
+                      customerData['events'][1]['event']['segment'];
+                  customerId = customerData['events'][1]['event']['user_id'];
+
+                  openSourceProbChurn =
+                      customerData['events'][1]['event']['predict_value_y'];
+                  probChurn = customerData['events'][1]['event']['P_CHURN1'];
+                  probRetention =
+                      customerData['events'][1]['event']['P_CHURN0'];
+                } else {
+                  // print(val.customerScoreData['events'][1]['event']['segment']);
+                  customerSegment =
+                      val.customerScoreData['events'][1]['event']['segment'];
+                  customerId =
+                      val.customerScoreData['events'][1]['event']['user_id'];
+                  openSourceProbChurn = val.customerScoreData['events'][1]
+                      ['event']['predict_value_y'];
+                  probChurn =
+                      val.customerScoreData['events'][1]['event']['P_CHURN1'];
+                  probRetention =
+                      val.customerScoreData['events'][1]['event']['P_CHURN0'];
+                }
+                return IconButton(
+                  icon: Icon(FontAwesomeIcons.userCircle),
+                  onPressed: () {
+                    Get.defaultDialog(
+                      title: "SAS AI Customer Analysis",
+                      // backgroundColor: Colors.tealAccent,
+                      content: Container(
+                        width: Get.width,
+                        child: Text(
                           'Customer ID : $customerId \nCustomer Segment: $customerSegment \nOpen Source Model Churn Score: ${double.parse(openSourceProbChurn).toStringAsFixed(2)}\nSASML Churn Score:${double.parse(probChurn).toStringAsFixed(2)}\nSASML Retention Score:${double.parse(probRetention).toStringAsFixed(2)}',
                           style: TextStyle(
                               fontSize: 16.0, fontWeight: FontWeight.w300),
-                        );
-                      },
-                    ),
-                  ),
+                        ),
+                      ),
+                    );
+                    print(
+                        '$customerId,$customerSegment,$openSourceProbChurn,$probChurn');
+                  },
                 );
-                print(
-                    '$customerId,$customerSegment,$openSourceProbChurn,$probChurn');
               },
             ),
             GetBuilder<UserCartProductsController>(builder: (val) {

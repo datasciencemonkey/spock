@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:get/get.dart';
-import 'package:omnikit/controllers/customer_scores_model.dart';
+// import 'package:get/get.dart';
+// import 'package:omnikit/controllers/customer_scores_model.dart';
 
 import '../services/services.dart';
 import 'landing_page.dart';
@@ -16,6 +16,7 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  dynamic churnData;
   @override
   void initState() {
     super.initState();
@@ -25,14 +26,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void getChurnData(String id) async {
     var churnData = await ChurnService().getCustomerScores(id); //json
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return GetBuilder<CustomerScoresController>(
-        builder: (val) {
-          val.addScores(churnData);
-          return LandingPage(
-            email: widget.email
-          );
-        },
-      );
+      return LandingPage(email: widget.email, data: churnData);
     }));
     // print(churnData);
   }

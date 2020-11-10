@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
+// import 'package:omnikit/controllers/customer_scores_model.dart';
+
 import 'package:omnikit/data/data.dart';
 import 'package:omnikit/widgets/widgets.dart';
 
 class LandingPage extends StatefulWidget {
   final String email;
+  final dynamic data;
 
-  const LandingPage({
-    Key key,
-    this.email,
-  }) : super(key: key);
+  const LandingPage({Key key, this.email, this.data}) : super(key: key);
 
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -45,7 +45,7 @@ class _LandingPageState extends State<LandingPage> {
       appBar: PreferredSize(
         child: CustomAppBar(
           scrollOffset: _scrollOffset,
-
+          customerData: widget.data,
         ),
         preferredSize: Size(screenSize.width, 50.0),
       ),
