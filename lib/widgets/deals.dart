@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:omnikit/models/models.dart';
+import 'package:omnikit/services/backend_auth_service.dart';
 
 class Deals extends StatelessWidget {
   final String title;
@@ -8,6 +9,7 @@ class Deals extends StatelessWidget {
   const Deals({Key key, this.title, this.contentList}) : super(key: key);
   @override
   Widget build(BuildContext context) {
+    // BackEndAuthService authRequest = BackEndAuthService();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -33,7 +35,10 @@ class Deals extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               final Content content = contentList[index];
               return GestureDetector(
-                onTap: () => print(content.name),
+                onTap: () {
+                  // authRequest.getBearer();
+                  print(content.name);
+                },
                 child: Stack(
                   alignment: Alignment.center,
                   children: [

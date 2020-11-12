@@ -31,6 +31,8 @@
 .pub/
 /build/
 
+/Users/sagang/AndroidStudioProjects/omnikit/lib/settings.dart
+
 # Web related
 lib/generated_plugin_registrant.dart
 

@@ -1,7 +1,15 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-const postHeaders = {"Content-Type":"application/json"};
+String username = 'sas.ec';
+String password = '';
+String basicAuth =
+      'Basic ' + base64Encode(utf8.encode('sas.ec:'));
+
+Map<String, String> postHeaders = <String,String>{
+  'Content-Type': "application/x-www-form-urlencoded",
+  'authorization': basicAuth
+};
 
 class NetworkHelper {
   NetworkHelper(this.url);
@@ -24,15 +32,16 @@ class NetworkHelper {
     }
   }
 
-  Future putData(dynamic payload) async {
+  Future postData(dynamic payload) async {
     print(url);
-    print(jsonEncode(payload));
-    http.Response response = await http.put(url,
-        body: jsonEncode(payload),
+    print(jsonEncode('grant_type=password&username=sagang&password=sas123'));
+    print(postHeaders);
+    http.Response response = await http.post(url,
+        body: jsonEncode('grant_type=password&username=sagang&password=sas123'),
         headers: postHeaders);
     if (response.statusCode == 200) {
       String data = response.body;
-      return data; 
+      return data;
     } else {
       print(response.statusCode);
     }

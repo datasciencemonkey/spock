@@ -6,7 +6,7 @@ import 'package:omnikit/controllers/cart_products.dart';
 import 'package:omnikit/models/models.dart';
 import 'package:omnikit/pages/pages.dart';
 
-class CartPage extends StatefulWidget {
+class CartPage extends StatelessWidget {
   final String itemName;
   final String itemPrice;
   final String itemDescription;
@@ -20,11 +20,7 @@ class CartPage extends StatefulWidget {
     this.itemImage,
   }) : super(key: key);
 
-  @override
-  _CartPageState createState() => _CartPageState();
-}
 
-class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -13,3 +13,8 @@ const clickPredictionMasHost = 'http://ccbu-viya35.aws.sas.com';
 const clickPredictionMasModule = 'click_pred_autosas';
 const clickPredictionScoringUrl =
     '$clickPredictionMasHost/microanalyticScore/modules/$clickPredictionMasModule/steps/score';
+const clickPredictionMasAuthUrl =
+    '$clickPredictionMasHost/SASLogon/oauth/token';
+const masGrantType = 'password';
+const masUserName = 'sagang';
+const masPassword = 'sas123';
