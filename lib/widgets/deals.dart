@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:omnikit/models/models.dart';
-import 'package:omnikit/services/backend_auth_service.dart';
+// import 'package:omnikit/services/backend_auth_service.dart';
 
 class Deals extends StatelessWidget {
   final String title;

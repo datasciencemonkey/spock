@@ -1,8 +1,9 @@
-import 'networking.dart';
-import '../settings.dart';
-import 'package:dio/dio.dart';
+import 'package:get/get.dart';
+import 'package:omnikit/services/networking.dart';
 
-class BackEndAuthService {
+import '../settings.dart';
+
+class AuthController extends GetxController {
   dynamic data;
   var fData = {
     'grant_type': '$masGrantType',

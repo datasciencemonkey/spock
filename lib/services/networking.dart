@@ -1,13 +1,15 @@
+import 'dart:async';
+
+import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 String username = 'sas.ec';
 String password = '';
-String basicAuth =
-      'Basic ' + base64Encode(utf8.encode('sas.ec:'));
+String basicAuth = 'Basic ' + base64Encode(utf8.encode('sas.ec:'));
 
-Map<String, String> postHeaders = <String,String>{
-  'Content-Type': "application/x-www-form-urlencoded",
+Map<String, String> postHeaders = <String, String>{
+  // 'Content-Type': "application/x-www-form-urlencoded",
   'authorization': basicAuth
 };
 
@@ -32,8 +34,24 @@ class NetworkHelper {
     }
   }
 
+  // Future postData(dynamic payload) async {
+  //   print(url);
+  //   print(jsonEncode('grant_type=password&username=sagang&password=sas123'));
+  //   print(postHeaders);
+  //   http.Response response = await http.post(url,
+  //       body: jsonEncode('grant_type=password&username=sagang&password=sas123'),
+  //       headers: postHeaders);
+  //   if (response.statusCode == 200) {
+  //     String data = response.body;
+  //     return data;
+  //   } else {
+  //     print(response.statusCode);
+  //   }
+  // }
+
   Future postData(dynamic payload) async {
     print(url);
+    print('this is from postData');
     print(jsonEncode('grant_type=password&username=sagang&password=sas123'));
     print(postHeaders);
     http.Response response = await http.post(url,
@@ -45,5 +63,26 @@ class NetworkHelper {
     } else {
       print(response.statusCode);
     }
+  }
+
+  Future<dynamic> postDioData(Map fData) async {
+    Dio dio = Dio();
+    Response response = await dio.post(
+      url,
+      data: fData,
+      options: Options(
+          headers: postHeaders, contentType: Headers.formUrlEncodedContentType),
+    );
+    print(url);
+    print(fData.toString());
+    if (response.statusCode == 200) {
+      dynamic data = response.data;
+      print(response.data.toString());
+      print(response.statusCode);
+      return data;
+    } else {
+      print(response.statusCode);
+    }
+
   }
 }

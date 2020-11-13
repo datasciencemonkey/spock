@@ -2,10 +2,13 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:omnikit/controllers/auth_controller.dart';
 import 'package:omnikit/controllers/cart_products.dart';
 
 import 'package:omnikit/pages/pages.dart';
 import 'dart:math';
+
+import 'package:omnikit/services/backend_auth_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -19,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   String _email;
   String _password;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  BackEndAuthService authRequest = BackEndAuthService();
 
   @override
   Widget build(BuildContext context) {
@@ -83,7 +87,9 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.lime,
                               borderRadius: BorderRadius.circular(30.0),
                             ),
-                            child: FlatButton(
+                            child: GetBuilder<AuthController>(
+                              init: AuthController(),
+                              builder: (val) => FlatButton(
                                 child: Text(
                                   'Login',
                                   style: TextStyle(
@@ -96,9 +102,13 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   //1. save the email
                                   formKey.currentState.save();
-                                  // 2. generate a userID or payload to be scored with ESP
+                                  // 2. save auth data i.e bearer for MAS and save into the data variable
+                                  // dynamic authData = authRequest.getBearer();
+                                  // print(authData['access_token'].toString());
+                                  val.getBearer();
+                                  // 3. generate a userID or payload to be scored with ESP
                                   _userId = _assignUserID().toString();
-                                  //Route to the loading page to fetch results from ESP
+                                  //4 . Route to the loading page to fetch results from ESP
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
@@ -113,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                                 },
                               ),
                             ),
-                          
+                          ),
                           Container(
                             width: MediaQuery.of(context).size.width * .3,
                             height: 60.0,
@@ -228,5 +238,5 @@ class _HomePageState extends State<HomePage> {
 
 int _assignUserID() {
   Random randX = Random();
-  return randX.nextInt(450)+51;
+  return randX.nextInt(450) + 51;
 }

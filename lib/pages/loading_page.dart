@@ -1,5 +1,7 @@
+// import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+// import 'package:omnikit/services/backend_auth_service.dart';
 // import 'package:get/get.dart';
 // import 'package:omnikit/controllers/customer_scores_model.dart';
 
@@ -17,6 +19,7 @@ class LoadingScreen extends StatefulWidget {
 
 class _LoadingScreenState extends State<LoadingScreen> {
   dynamic churnData;
+
   @override
   void initState() {
     super.initState();
@@ -30,6 +33,13 @@ class _LoadingScreenState extends State<LoadingScreen> {
     }));
     // print(churnData);
   }
+
+//Not needed here 
+
+  // Future<Response> getMasAuthData() async {
+  //   Response response = await BackEndAuthService().getBearer();
+  //   return response;
+  // }
 
   @override
   Widget build(BuildContext context) {
