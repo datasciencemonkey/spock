@@ -1,6 +1,6 @@
 import 'networking.dart';
 import '../settings.dart';
-import 'package:dio/dio.dart';
+// import 'package:dio/dio.dart';
 
 class BackEndAuthService {
   dynamic data;

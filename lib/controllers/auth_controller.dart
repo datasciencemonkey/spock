@@ -13,8 +13,17 @@ class AuthController extends GetxController {
 
   Future<dynamic> getBearer() async {
     NetworkHelper networkHelper = NetworkHelper('$clickPredictionMasAuthUrl');
-    dynamic data = await networkHelper.postDioData(fData);
-    print(data['access_token'].toString());
+    dynamic rData = await networkHelper.postDioData(fData);
+    print(rData['access_token'].toString());
+    data = rData;
+    update();
     return data;
+  }
+
+  Future<dynamic> runClickPredModel(String token, Map<String,dynamic> payload) async {
+    NetworkHelper networkHelper = NetworkHelper('$clickPredictionScoringUrl');
+    dynamic resultResponse =
+        await networkHelper.getClickPrediction(token: token, payload: payload);
+    print(resultResponse.toString());
   }
 }

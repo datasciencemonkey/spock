@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -19,7 +17,6 @@ class NetworkHelper {
   final String url;
 
   Future getData() async {
-    print(url);
     http.Response response =
         await http.get(url, headers: {'Accept': 'application/json'});
     if (response.statusCode == 200) {
@@ -83,6 +80,29 @@ class NetworkHelper {
     } else {
       print(response.statusCode);
     }
+  }
 
+  Future<dynamic> getClickPrediction(
+      {String token, Map<String, dynamic> payload}) async {
+    Dio dio = Dio();
+    Map<String, String> getHeaders = <String, String>{
+      'Content-Type': "application/json",
+      'authorization': "Bearer " + token
+    };
+    print(json.encode(payload));
+    Response response = await dio.post(
+      url,
+      data: json.encode(payload),
+      options: Options(headers: getHeaders),
+    );
+    print(url);
+    print(getHeaders);
+    if (response.statusCode == 201 or response.statusCode ==200) {
+      dynamic data = response.data;
+      print('MAS responded with Status code ${response.statusCode}');
+      return data;
+    } else {
+      print('Request Failed... Contact your dev/admin');
+    }
   }
 }

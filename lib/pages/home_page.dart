@@ -8,7 +8,7 @@ import 'package:omnikit/controllers/cart_products.dart';
 import 'package:omnikit/pages/pages.dart';
 import 'dart:math';
 
-import 'package:omnikit/services/backend_auth_service.dart';
+// import 'package:omnikit/services/backend_auth_service.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
   String _email;
   String _password;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  BackEndAuthService authRequest = BackEndAuthService();
+  // BackEndAuthService authRequest = BackEndAuthService();
 
   @override
   Widget build(BuildContext context) {
