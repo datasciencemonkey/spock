@@ -79,13 +79,17 @@ class CustomAppBar extends StatelessWidget {
                   icon: Icon(FontAwesomeIcons.userCircle),
                   onPressed: () {
                     Get.defaultDialog(
-                      title: "SAS AI Customer Analysis",
+                      backgroundColor: Colors.blueAccent,
+                      title: "💡SAS AI Customer Analysis",
+                      titleStyle: TextStyle(color: Colors.white,),
                       // backgroundColor: Colors.tealAccent,
                       content: Container(
+                        // color: Colors.blueAccent,
                         width: Get.width,
                         child: Text(
-                          'Customer ID : $customerId \nCustomer Segment: $customerSegment \nOpen Source Model Churn Score: ${double.parse(openSourceProbChurn).toStringAsFixed(2)}\nSASML Churn Score:${double.parse(probChurn).toStringAsFixed(2)}\nSASML Retention Score:${double.parse(probRetention).toStringAsFixed(2)}',
+                          'Customer ID : $customerId \nCustomer Segment: $customerSegment \nOpen Source Churn Score: ${double.parse(openSourceProbChurn).toStringAsFixed(2)}\nSASML Churn Score:${double.parse(probChurn).toStringAsFixed(2)}\nSASML Retention Score:${double.parse(probRetention).toStringAsFixed(2)}',
                           style: TextStyle(
+                            color: Colors.white,
                               fontSize: 16.0, fontWeight: FontWeight.w300),
                         ),
                       ),

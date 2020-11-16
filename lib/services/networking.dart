@@ -2,12 +2,12 @@ import 'package:dio/dio.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+
 String username = 'sas.ec';
 String password = '';
 String basicAuth = 'Basic ' + base64Encode(utf8.encode('sas.ec:'));
 
 Map<String, String> postHeaders = <String, String>{
-  // 'Content-Type': "application/x-www-form-urlencoded",
   'authorization': basicAuth
 };
 
@@ -30,21 +30,6 @@ class NetworkHelper {
       print(response.statusCode);
     }
   }
-
-  // Future postData(dynamic payload) async {
-  //   print(url);
-  //   print(jsonEncode('grant_type=password&username=sagang&password=sas123'));
-  //   print(postHeaders);
-  //   http.Response response = await http.post(url,
-  //       body: jsonEncode('grant_type=password&username=sagang&password=sas123'),
-  //       headers: postHeaders);
-  //   if (response.statusCode == 200) {
-  //     String data = response.body;
-  //     return data;
-  //   } else {
-  //     print(response.statusCode);
-  //   }
-  // }
 
   Future postData(dynamic payload) async {
     print(url);
@@ -82,8 +67,8 @@ class NetworkHelper {
     }
   }
 
-  Future<dynamic> getClickPrediction(
-      {String token, Map<String, dynamic> payload}) async {
+  Future<dynamic> getClickPrediction({String token,
+   Map<String, dynamic> payload}) async {
     Dio dio = Dio();
     Map<String, String> getHeaders = <String, String>{
       'Content-Type': "application/json",
@@ -97,12 +82,13 @@ class NetworkHelper {
     );
     print(url);
     print(getHeaders);
-    if (response.statusCode == 201 or response.statusCode ==200) {
+    if (response.statusCode == 201 || response.statusCode ==200) {
       dynamic data = response.data;
       print('MAS responded with Status code ${response.statusCode}');
       return data;
-    } else {
-      print('Request Failed... Contact your dev/admin');
+    } 
+    else {
+      print('Request Failed.Contact your dev/admin');
     }
   }
 }

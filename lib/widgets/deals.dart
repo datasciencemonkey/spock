@@ -45,7 +45,17 @@ class Deals extends StatelessWidget {
                     Map<String, dynamic> payload = generatePayload();
                     print('from deals');
                     // print(val.data.toString());
-                    val.runClickPredModel(val.data['access_token'].toString(), payload);
+                    val.runClickPredModel(
+                        val.data['access_token'].toString(), payload);
+                    Get.snackbar('Click Prediction Probability',
+          
+                        '⚡️ SAS AI Click Score ${(double.parse(val.eMClickPredResponse) * 100).toStringAsFixed(2)}%',
+                        colorText: Colors.white,
+                        snackPosition: SnackPosition.BOTTOM,
+                        backgroundColor: Colors.blueAccent,
+                        borderWidth: Get.width,
+                        icon: Icon(Icons.online_prediction_sharp, color: Colors.white),
+                        shouldIconPulse: true);
                     print(content.name);
                   },
                   child: Stack(
@@ -113,7 +123,7 @@ class Deals extends StatelessWidget {
     );
   }
 
-  Map<String, dynamic>generatePayload() {
+  Map<String, dynamic> generatePayload() {
     Random randX = Random();
     int index = randX.nextInt(3);
     return clickPredData[index];
