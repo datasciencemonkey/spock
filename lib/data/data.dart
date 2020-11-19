@@ -182,48 +182,99 @@ final List<Content> myList = const [
 
 final List<Map<String, dynamic>> clickPredData = const [
   {
-    "inputs":[
-        {"name":"avg_ord_delivery_before_promise","value":4.0},
-        {"name":"cust_pay_ship_prop","value":0.0},
-        {"name":"days_in_full_price","value":50.0},
-        {"name":"event_num_cart_add","value":5.0},
-        {"name":"event_num_cart_remove","value":3.0},
-        {"name":"last_30_rev","value":350.0},
-        {"name":"marketing_email_last_yr","value":1.0},
-        {"name":"previous_stock_out","value":0.0},
-        {"name":"prev_affl_marketing","value":1.0},
-        {"name":"prod_id","value":1834685.0},
-        {"name":"seo_reliance","value":1.0}       
-        ]
-    },
-    {
-    "inputs":[
-        {"name":"avg_ord_delivery_before_promise","value":1.0},
-        {"name":"cust_pay_ship_prop","value":0.0},
-        {"name":"days_in_full_price","value":50.0},
-        {"name":"event_num_cart_add","value":5.0},
-        {"name":"event_num_cart_remove","value":3.0},
-        {"name":"last_30_rev","value":350.0},
-        {"name":"marketing_email_last_yr","value":1.0},
-        {"name":"previous_stock_out","value":0.0},
-        {"name":"prev_affl_marketing","value":1.0},
-        {"name":"prod_id","value":1834685.0},
-        {"name":"seo_reliance","value":1.0}       
-        ]
-    },
-    {
-    "inputs":[
-        {"name":"avg_ord_delivery_before_promise","value":0.0},
-        {"name":"cust_pay_ship_prop","value":0.0},
-        {"name":"days_in_full_price","value":50.0},
-        {"name":"event_num_cart_add","value":5.0},
-        {"name":"event_num_cart_remove","value":3.0},
-        {"name":"last_30_rev","value":35.0},
-        {"name":"marketing_email_last_yr","value":1.0},
-        {"name":"previous_stock_out","value":0.0},
-        {"name":"prev_affl_marketing","value":1.0},
-        {"name":"prod_id","value":1834685.0},
-        {"name":"seo_reliance","value":1.0}       
-        ]
-    },
-    ];
+    "inputs": [
+      {"name": "avg_ord_delivery_before_promise", "value": 4.0},
+      {"name": "cust_pay_ship_prop", "value": 0.0},
+      {"name": "days_in_full_price", "value": 50.0},
+      {"name": "event_num_cart_add", "value": 5.0},
+      {"name": "event_num_cart_remove", "value": 3.0},
+      {"name": "last_30_rev", "value": 350.0},
+      {"name": "marketing_email_last_yr", "value": 1.0},
+      {"name": "previous_stock_out", "value": 0.0},
+      {"name": "prev_affl_marketing", "value": 1.0},
+      {"name": "prod_id", "value": 1834685.0},
+      {"name": "seo_reliance", "value": 1.0}
+    ]
+  },
+  {
+    "inputs": [
+      {"name": "avg_ord_delivery_before_promise", "value": 1.0},
+      {"name": "cust_pay_ship_prop", "value": 0.0},
+      {"name": "days_in_full_price", "value": 50.0},
+      {"name": "event_num_cart_add", "value": 5.0},
+      {"name": "event_num_cart_remove", "value": 3.0},
+      {"name": "last_30_rev", "value": 350.0},
+      {"name": "marketing_email_last_yr", "value": 1.0},
+      {"name": "previous_stock_out", "value": 0.0},
+      {"name": "prev_affl_marketing", "value": 1.0},
+      {"name": "prod_id", "value": 1834685.0},
+      {"name": "seo_reliance", "value": 1.0}
+    ]
+  },
+  {
+    "inputs": [
+      {"name": "avg_ord_delivery_before_promise", "value": 0.0},
+      {"name": "cust_pay_ship_prop", "value": 0.0},
+      {"name": "days_in_full_price", "value": 50.0},
+      {"name": "event_num_cart_add", "value": 5.0},
+      {"name": "event_num_cart_remove", "value": 3.0},
+      {"name": "last_30_rev", "value": 35.0},
+      {"name": "marketing_email_last_yr", "value": 1.0},
+      {"name": "previous_stock_out", "value": 0.0},
+      {"name": "prev_affl_marketing", "value": 1.0},
+      {"name": "prod_id", "value": 1834685.0},
+      {"name": "seo_reliance", "value": 1.0}
+    ]
+  },
+];
+
+final List<Map<String, dynamic>> fraudPredData = const [
+  {
+    "order_id": 2324123,
+    "gender": "female",
+    "age": 24,
+    "CC_type": "MasterCard",
+    "cc_expiration": "Feb-18",
+    "total_session_length": 26.51,
+    "pageview_pre_purchase_visits": 70,
+    "time_on_cart": 7.62,
+    "product_view_count": 7,
+    "total_visit_clicks": 29,
+    "customer_credit_selection": "Bad Credit",
+    "existing_ecom_customer": 0,
+    "avs_response_code": "X",
+    "customer_id": 57685899
+  },
+  {
+    "order_id": 2342153543,
+    "gender": "female",
+    "age": 24,
+    "CC_type": "MasterCard",
+    "cc_expiration": "Feb-18",
+    "total_session_length": 566.51,
+    "pageview_pre_purchase_visits": 70,
+    "time_on_cart": 7.62,
+    "product_view_count": 7,
+    "total_visit_clicks": 10,
+    "customer_credit_selection": "Bad Credit",
+    "existing_ecom_customer": 0,
+    "avs_response_code": "X",
+    "customer_id": 576858334
+  },
+  {
+    "order_id": 2324123,
+    "gender": "male",
+    "age": 42,
+    "CC_type": "MasterCard",
+    "cc_expiration": "Feb-18",
+    "total_session_length": 25.51,
+    "pageview_pre_purchase_visits": 40,
+    "time_on_cart": 7.62,
+    "product_view_count": 7,
+    "total_visit_clicks": 29,
+    "customer_credit_selection": "Good Credit",
+    "existing_ecom_customer": 0,
+    "avs_response_code": "Y",
+    "customer_id": 5768583459
+  }
+];

@@ -1,8 +1,10 @@
 import 'dart:math';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 import '../data/data.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omnikit/controllers/auth_controller.dart';
+import 'package:omnikit/controllers/mas_controller.dart';
 import 'package:omnikit/models/models.dart';
 // import 'package:omnikit/services/backend_auth_service.dart';
 
@@ -38,7 +40,7 @@ class Deals extends StatelessWidget {
             itemCount: contentList.length,
             itemBuilder: (BuildContext context, int index) {
               final Content content = contentList[index];
-              return GetBuilder<AuthController>(
+              return GetBuilder<MASController>(
                 builder: (val) => GestureDetector(
                   onTap: () {
                     // authRequest.getBearer();
@@ -54,7 +56,7 @@ class Deals extends StatelessWidget {
                         snackPosition: SnackPosition.BOTTOM,
                         backgroundColor: Colors.blueAccent,
                         borderWidth: Get.width,
-                        icon: Icon(Icons.online_prediction_sharp, color: Colors.white),
+                        icon: Icon(MdiIcons.api, color: Colors.white),
                         shouldIconPulse: true);
                     print(content.name);
                   },

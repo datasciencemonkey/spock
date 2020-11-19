@@ -2,7 +2,7 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:omnikit/controllers/auth_controller.dart';
+import 'package:omnikit/controllers/mas_controller.dart';
 import 'package:omnikit/controllers/cart_products.dart';
 
 import 'package:omnikit/pages/pages.dart';
@@ -87,8 +87,8 @@ class _HomePageState extends State<HomePage> {
                               color: Colors.lime,
                               borderRadius: BorderRadius.circular(30.0),
                             ),
-                            child: GetBuilder<AuthController>(
-                              init: AuthController(),
+                            child: GetBuilder<MASController>(
+                              init: MASController(),
                               builder: (val) => FlatButton(
                                 child: Text(
                                   'Login',

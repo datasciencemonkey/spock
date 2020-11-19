@@ -18,3 +18,8 @@ const clickPredictionMasAuthUrl =
 const masGrantType = 'password';
 const masUserName = 'sagang';
 const masPassword = 'sas123';
+
+// fraud Scoring - for Anomaly Detection
+const fraudServiceHost = 'http://localhost:8000';
+const fraudServiceName = 'fraudAnomaly';
+const fraudServiceUrl = '$fraudServiceHost/$fraudServiceName/';

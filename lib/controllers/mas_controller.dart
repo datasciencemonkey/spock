@@ -5,7 +5,7 @@ import 'package:omnikit/services/networking.dart';
 
 import '../settings.dart';
 
-class AuthController extends GetxController {
+class MASController extends GetxController {
   dynamic data;
   String eMClickPredResponse;
   var fData = {
