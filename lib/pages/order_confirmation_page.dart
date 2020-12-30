@@ -31,22 +31,28 @@ class OrderConfirmation extends StatelessWidget {
                     //2. Send the payload to scoring service
                     val.runFraudPredModel(payload);
                     Future.delayed(
-                        Duration(milliseconds: 500),
-                        () => Get.defaultDialog(
-                          backgroundColor: Colors.blue,
-                            title: '🚀 SAS AI Fraud Analysis',
-                            titleStyle: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-                            content: Column(
-                              children: [
-                                Text(
-                                    'Fraud Anomaly (0/1) → ${val.fraudAnomalyPredResponse}',
-                                    style: TextStyle(color: Colors.white,)),
-                                SizedBox(height: 20),
-                                Text(
-                                    'Anomaly Score → ${val.data['Anomaly_Score']}',
-                                    style: TextStyle(color: Colors.white,))
-                              ],
-                            )));
+                      Duration(milliseconds: 500),
+                      () => Get.defaultDialog(
+                        backgroundColor: Colors.blue,
+                        title: '🚀 SAS AI Fraud Analysis',
+                        titleStyle: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                        content: Column(
+                          children: [
+                            Text(
+                                'Fraud Anomaly (0/1) → ${val.fraudAnomalyPredResponse}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                )),
+                            SizedBox(height: 20),
+                            Text('Anomaly Score → ${val.data['Anomaly_Score']}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                ))
+                          ],
+                        ),
+                      ),
+                    );
                   }),
             ),
             GetBuilder<UserCartProductsController>(builder: (val) {

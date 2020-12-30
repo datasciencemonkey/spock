@@ -3,8 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:omnikit/controllers/cart_products.dart';
 import 'package:omnikit/models/models.dart';
-
 import 'package:omnikit/pages/pages.dart';
+import 'package:omnikit/pages/add_review_page.dart';
 
 class ProductPage extends StatelessWidget {
   final String itemName;
@@ -31,7 +31,7 @@ class ProductPage extends StatelessWidget {
         elevation: 0.0,
         title: Text(
           itemName,
-          style: TextStyle(color:Colors.black87),
+          style: TextStyle(color: Colors.black87),
         ),
         actions: [
           // FlatButton(child:Image(image:AssetImage('assets/images/omnikit.png'),),onPressed: (){}),
@@ -56,7 +56,7 @@ class ProductPage extends StatelessWidget {
           Expanded(
             child: Padding(
               padding: const EdgeInsets.fromLTRB(0, 10.0, 0, 0),
-                          child: Image(
+              child: Image(
                 width: screenSize.width,
                 fit: isFeatured ? BoxFit.fill : BoxFit.contain,
                 image: AssetImage(itemImage),
@@ -102,6 +102,28 @@ class ProductPage extends StatelessWidget {
           SizedBox(height: 2.0),
           Row(
             children: [
+              RaisedButton(
+                color: Colors.black38,
+                disabledColor: Colors.amber,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (_) => Review(),
+                      fullscreenDialog: true,
+                    ),
+                  );
+                  print('customer wants to add review');
+                },
+                child: Text(
+                  'Add Customer Review',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w400,
+                      fontSize: 14.0,
+                      letterSpacing: 2.0),
+                ),
+              ),
               Expanded(
                   child: SizedBox(
                 width: screenSize.width * .5,
@@ -138,9 +160,6 @@ class ProductPage extends StatelessWidget {
               //     builder: (_) => CartPage(),
               //   ),
               // );
-              val.items.forEach((item) {
-                print('${item.name} was added to the cart');
-              });
             },
             child: Text(
               'Add to Cart',

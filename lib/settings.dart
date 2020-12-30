@@ -20,6 +20,19 @@ const masUserName = 'sagang';
 const masPassword = 'sas123';
 
 // fraud Scoring - for Anomaly Detection
-const fraudServiceHost = 'http://localhost:8000';
+const fraudServiceHost = 'http://localhost:8001';
 const fraudServiceName = 'fraudAnomaly';
 const fraudServiceUrl = '$fraudServiceHost/$fraudServiceName/';
+
+//azure cognitive services
+const cognitiveSentimentEndpoint =
+    'https://eastus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment';
+
+const cognitiveLanguageEndpoint =
+    'https://eastus.api.cognitive.microsoft.com/text/analytics/v2.1/languages';
+
+const cognitiveKeyPhrasesEndpoint =
+    'https://eastus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases';
+
+const cognitiveEntitiesEndpoint =
+    'https://eastus.api.cognitive.microsoft.com/text/analytics/v2.1/entities';

@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
   String _email;
   String _password;
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  bool isSwitched = false;
   // BackEndAuthService authRequest = BackEndAuthService();
 
   @override
@@ -76,7 +77,16 @@ class _HomePageState extends State<HomePage> {
                       _emailTextField(),
                       SizedBox(height: _deviceHeight * 0.05),
                       _passwordTextField(),
-                      SizedBox(height: _deviceHeight * 0.1),
+                      SizedBox(height: _deviceHeight * 0.05),
+                      Switch.adaptive(
+                        value: isSwitched,
+                        onChanged: (val) {
+                          print(val);
+                          setState(() {
+                            isSwitched = val;
+                          });
+                        },
+                      ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: <Widget>[

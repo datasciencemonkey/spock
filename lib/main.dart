@@ -36,7 +36,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         // scaffoldBackgroundColor: Colors.white,
       ),
-      home: HomePage(),
+      //TODO: Replace this to HomePage() after product page is done
+      home: LandingPage(),
     );
   }
 }

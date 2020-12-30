@@ -97,10 +97,28 @@ class NetworkHelper {
     print(response.data.runtimeType);
     if (response.statusCode == 201 || response.statusCode == 200) {
       dynamic data = response.data;
-      print('Service responded with Status code ${response.statusCode}');
+      print('Endpoint responded with Status code ${response.statusCode}');
       return data;
     } else {
       print('Request Failed.Contact your dev/admin');
     }
   }
+
+  Future<dynamic> getCognitiveServiceData({Map<String, dynamic> payload}) async {
+    Dio dio = new Dio();
+    Response response = await dio.post(
+      url,
+      data: json.encode(payload),
+    options: Options(headers: {'Accept': 'application/json', 'Ocp-Apim-Subscription-Key':'fca0d344c4ca483b85d16515b9794d85'})
+    );
+    // print(response.data.runtimeType);
+    if (response.statusCode == 201 || response.statusCode == 200) {
+      dynamic data = response.data;
+      print('Endpoint $url responded with Status code ${response.statusCode}');
+      return data;
+    } else {
+      print('Request Failed.Contact your dev/admin');
+    }
+  }
+
 }

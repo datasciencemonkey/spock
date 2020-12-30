@@ -49,15 +49,17 @@ class Deals extends StatelessWidget {
                     // print(val.data.toString());
                     val.runClickPredModel(
                         val.data['access_token'].toString(), payload);
-                    Get.snackbar('Click Prediction Probability',
-          
-                        '⚡️ SAS AI Click Score ${(double.parse(val.eMClickPredResponse) * 100).toStringAsFixed(2)}%',
-                        colorText: Colors.white,
-                        snackPosition: SnackPosition.BOTTOM,
-                        backgroundColor: Colors.blueAccent,
-                        borderWidth: Get.width,
-                        icon: Icon(MdiIcons.api, color: Colors.white),
-                        shouldIconPulse: true);
+
+                    Future.delayed(Duration(milliseconds: 500), () {
+                       Get.snackbar('Click Prediction Probability',
+                          '⚡️ SAS AI Click Score ${(double.parse(val.eMClickPredResponse) * 100).toStringAsFixed(2)}%',
+                          colorText: Colors.white,
+                          snackPosition: SnackPosition.BOTTOM,
+                          backgroundColor: Colors.blueAccent,
+                          borderWidth: Get.width,
+                          icon: Icon(MdiIcons.api, color: Colors.white),
+                          shouldIconPulse: true);
+                    });
                     print(content.name);
                   },
                   child: Stack(

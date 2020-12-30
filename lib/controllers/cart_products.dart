@@ -20,13 +20,14 @@ class UserCartProductsController extends GetxController {
 
 // add product to cart
   void addProduct(Content item) {
-
     _items.add(item);
+    print('${item.name} was added to the cart');
     update();
   }
 
   void removeItem(Content item) {
     _items.remove(item);
+    print('${item.name} was removed from the cart');
     update();
   }
 
