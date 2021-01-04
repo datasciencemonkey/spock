@@ -50,7 +50,9 @@ class _HomePageState extends State<HomePage> {
                         height: 200.0,
                         width: 200.0,
                         child: Image(
-                          image: AssetImage('assets/images/omnikit.png'),
+                          image: isSwitched
+                              ? AssetImage('assets/images/alwaysOn.png')
+                              : AssetImage('assets/images/omnikit.png'),
                           fit: BoxFit.fill,
                         ),
                       ),
@@ -59,7 +61,7 @@ class _HomePageState extends State<HomePage> {
                 ),
                 TypewriterAnimatedTextKit(
                   speed: Duration(milliseconds: 200),
-                  text: ['Shop.Anywhere. Everywhere.'],
+                  text: ['Anywhere.Everywhere.'],
                   totalRepeatCount: 1,
                   textStyle: TextStyle(
                     fontSize: 15.0,
@@ -78,14 +80,22 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: _deviceHeight * 0.05),
                       _passwordTextField(),
                       SizedBox(height: _deviceHeight * 0.05),
-                      Switch.adaptive(
-                        value: isSwitched,
-                        onChanged: (val) {
-                          print(val);
-                          setState(() {
-                            isSwitched = val;
-                          });
-                        },
+//TODO: Update state to switch between retail & telco
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('Retail'),
+                          Switch.adaptive(
+                            value: isSwitched,
+                            onChanged: (val) {
+                              print(val);
+                              setState(() {
+                                isSwitched = val;
+                              });
+                            },
+                          ),
+                          Text('TMT'),
+                        ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -125,6 +135,7 @@ class _HomePageState extends State<HomePage> {
                                         builder: (_) => LoadingScreen(
                                           id: _userId,
                                           email: _email,
+                                          isSwitched: isSwitched,
                                         ),
                                       ));
 

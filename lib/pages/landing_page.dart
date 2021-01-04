@@ -7,8 +7,10 @@ import 'package:omnikit/widgets/widgets.dart';
 class LandingPage extends StatefulWidget {
   final String email;
   final dynamic data;
+  final bool isSwitched;
 
-  const LandingPage({Key key, this.email, this.data}) : super(key: key);
+  const LandingPage({Key key, this.email, this.data, this.isSwitched})
+      : super(key: key);
 
   @override
   _LandingPageState createState() => _LandingPageState();
@@ -46,6 +48,7 @@ class _LandingPageState extends State<LandingPage> {
         child: CustomAppBar(
           scrollOffset: _scrollOffset,
           customerData: widget.data,
+          isSwitched: widget.isSwitched,
         ),
         preferredSize: Size(screenSize.width, 50.0),
       ),
@@ -65,7 +68,7 @@ class _LandingPageState extends State<LandingPage> {
             sliver: SliverToBoxAdapter(
               child: Deals(
                 title: 'My Top Saver Deals',
-                contentList: deals,
+                contentList: widget.isSwitched ? tmtDeals : deals,
               ),
             ),
           ),

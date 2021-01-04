@@ -26,4 +26,11 @@ class Assets {
   static const String okMeshRouter = '${_images}meshRouter.png';
   static const String okPodsPro = '${_images}podsPro.png';
   static const String okDigitalAssistant = '${_images}digitalAssistant.jpg';
+  static const String alwaysOnStreamingVideoKit = '${_images}alwaysOn_streamingVideoKit.jpeg';
+  static const String alwaysOnSmartThermostat = '${_images}alwaysOn_smartThermostat.jpeg';
+  static const String alwaysOnSmartHomePackage = '${_images}alwaysOn_smartHomePackage.jpeg';
+  static const String alwaysOnNetworkSwitch = '${_images}alwaysOn_networkSwitch.jpeg';
+  static const String alwaysOnHomeCam = '${_images}alwaysOn_homeCam.jpeg';
+  static const String alwaysOnARVRHeadset = '${_images}alwaysOn_arVRHeadset.jpeg';
+  static const String alwaysOn5gPhone = '${_images}alwaysOn_5gPhone.jpeg';
 }

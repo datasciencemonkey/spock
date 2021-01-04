@@ -10,9 +10,11 @@ import 'landing_page.dart';
 // import 'results_page.dart';
 
 class LoadingScreen extends StatefulWidget {
-  LoadingScreen({@required this.id, @required this.email});
+  LoadingScreen(
+      {@required this.id, @required this.email, @required this.isSwitched});
   final String id;
   final String email;
+  final bool isSwitched;
   @override
   _LoadingScreenState createState() => _LoadingScreenState();
 }
@@ -29,12 +31,16 @@ class _LoadingScreenState extends State<LoadingScreen> {
   void getChurnData(String id) async {
     var churnData = await ChurnService().getCustomerScores(id); //json
     Navigator.push(context, MaterialPageRoute(builder: (context) {
-      return LandingPage(email: widget.email, data: churnData);
+      return LandingPage(
+        email: widget.email,
+        data: churnData,
+        isSwitched: widget.isSwitched,
+      );
     }));
     // print(churnData);
   }
 
-//Not needed here 
+//Not needed here
 
   // Future<Response> getMasAuthData() async {
   //   Response response = await BackEndAuthService().getBearer();

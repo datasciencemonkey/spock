@@ -11,6 +11,7 @@ void main() {
   );
 }
 
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
@@ -36,8 +37,8 @@ class MyApp extends StatelessWidget {
         visualDensity: VisualDensity.adaptivePlatformDensity,
         // scaffoldBackgroundColor: Colors.white,
       ),
-      //TODO: Replace this to HomePage() after product page is done
-      home: LandingPage(),
+    
+      home: HomePage(),
     );
   }
 }

@@ -90,6 +90,75 @@ final List<Content> deals = const [
   ),
 ];
 
+
+final List<Content> tmtDeals = const [
+  Content(
+    imageUrl: Assets.alwaysOn5gPhone,
+    name: '5G IPhone',
+    color: Colors.orange,
+    description:
+        'Make the most of the AlwaysOn 5G network.',
+    price: '\$1099.00',
+    // https://www.cuttingedgefirewood.com/product/box-of-oak-firewood/?utm_source=Google&utm_medium=cpc&utm_campaign=Shopping%20Boxes%20Firewood&gclid=CjwKCAjwyo36BRAXEiwA24CwGX6u0JKGKwwnHJQ2ocheVZ6K_vOykNx3YGeV2aOnut2R29WurWMYrRoC8woQAvD_BwE
+  ),
+  Content(
+    imageUrl: Assets.alwaysOnSmartHomePackage,
+    name: 'Smart Home Package',
+    color: Colors.red,
+    description:
+        'Make your home a smart home.',
+    price: '\$349.95',
+    // https://www.walmart.com/ip/Bounty-Select-A-Size-Paper-Towels-White-12-Double-Rolls/260488518
+  ),
+  Content(
+    name: 'Home Security Camera',
+    imageUrl: Assets.alwaysOnHomeCam,
+    color: Colors.yellow,
+    description:
+        'Communicate with people at your home from your devices with this camera.',
+    price: '\$59.95',
+    //https://oldnavy.gap.com/browse/product.do?pid=339228022&vid=12#pdp-page-content
+  ),
+  Content(
+    name: 'AR/VR Headset',
+    imageUrl: Assets.alwaysOnARVRHeadset,
+    color: Colors.lightBlueAccent,
+    description:
+        'Virtual reality can bring you anywhere.  Bridge the physicial and digital worlds.',
+    price: '\$219.95',
+    //https://www.walmart.com/ip/AT-T-Apple-iPhone-SE-2020-64GB-White-Upgrade-Only/979697514
+  ),
+  Content(
+    name: 'A-On Streaming Video Kit',
+    imageUrl: Assets.alwaysOnStreamingVideoKit,
+    color: Colors.green,
+    description:
+        'Stream your favorite channels, shows, movies, sports, news…with this video streaming product for your TV.',
+    price: '\$9.99',
+    //https://www.walmart.com/ip/Shark-Rocket-Corded-Stick-Vacuum-HV300/28919227
+  ),
+  Content(
+    name: 'Smart Thermostat',
+    imageUrl: Assets.alwaysOnSmartThermostat,
+    color: Colors.orange,
+    description:
+        'Create automatic and programmable temperature settings and vary based on weather conditions and other heating and cooling needs.',
+    price: '\$129.88',
+    //https://www.amazon.com/Tide-Laundry-Detergent-Spring-Meadow/dp/B01BUNHFQM?pf_rd_r=YRH2ESHQEFGFBS43JX4J&pf_rd_p=62c3d5b0-1b38-41b5-ac5c-f1a4b9e819fd&pd_rd_r=b5c7e344-81db-4b32-b3e4-5cee17ab25ac&pd_rd_w=tff6g&pd_rd_wg=VEBZB&ref_=pd_gw_bia_d0
+  ),
+  Content(
+    name: 'GB Network Switch',
+    imageUrl: Assets.alwaysOnNetworkSwitch,
+    color: Colors.red,
+    description:
+        'Stay connected with the latest in networking for your home.',
+    price: '\$159.00',
+//https://www.nike.com/t/air-force-1-shadow-womens-shoe-kTgn9J/CI0919-107
+  ),
+];
+
+
+
 final List<Content> originals = const [
   Content(
     name: 'Shawshank Redemption',

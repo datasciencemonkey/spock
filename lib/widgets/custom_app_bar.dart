@@ -8,11 +8,13 @@ import 'package:omnikit/controllers/customer_scores_model.dart';
 class CustomAppBar extends StatelessWidget {
   final double scrollOffset;
   final dynamic customerData;
+  final bool isSwitched;
 
   const CustomAppBar({
     Key key,
     this.scrollOffset = 0.0,
     this.customerData,
+    this.isSwitched,
   }) : super(key: key);
 
   @override
@@ -36,8 +38,8 @@ class CustomAppBar extends StatelessWidget {
                 height: 50.0,
                 width: 50.0,
                 child: Image(
-                  image: AssetImage('assets/images/omnikit.png'),
-                  fit: BoxFit.fill,
+                  image: isSwitched?AssetImage('assets/images/alwaysOn.png'): AssetImage('assets/images/omnikit.png'),
+                  fit: BoxFit.cover,
                 ),
               ),
             ),
@@ -81,7 +83,9 @@ class CustomAppBar extends StatelessWidget {
                     Get.defaultDialog(
                       backgroundColor: Colors.blueAccent,
                       title: "💡SAS AI Customer Analysis",
-                      titleStyle: TextStyle(color: Colors.white,),
+                      titleStyle: TextStyle(
+                        color: Colors.white,
+                      ),
                       // backgroundColor: Colors.tealAccent,
                       content: Container(
                         // color: Colors.blueAccent,
@@ -89,8 +93,9 @@ class CustomAppBar extends StatelessWidget {
                         child: Text(
                           'Customer ID : $customerId \nCustomer Segment: $customerSegment \nOpen Source Churn Score: ${double.parse(openSourceProbChurn).toStringAsFixed(2)}\nSASML Churn Score:${double.parse(probChurn).toStringAsFixed(2)}\nSASML Retention Score:${double.parse(probRetention).toStringAsFixed(2)}',
                           style: TextStyle(
-                            color: Colors.white,
-                              fontSize: 16.0, fontWeight: FontWeight.w300),
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.w300),
                         ),
                       ),
                     );
