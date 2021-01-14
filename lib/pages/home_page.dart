@@ -80,7 +80,6 @@ class _HomePageState extends State<HomePage> {
                       SizedBox(height: _deviceHeight * 0.05),
                       _passwordTextField(),
                       SizedBox(height: _deviceHeight * 0.05),
-//TODO: Update state to switch between retail & telco
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -88,7 +87,7 @@ class _HomePageState extends State<HomePage> {
                           Switch.adaptive(
                             value: isSwitched,
                             onChanged: (val) {
-                              print(val);
+                              // print(val);
                               setState(() {
                                 isSwitched = val;
                               });

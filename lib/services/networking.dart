@@ -53,7 +53,7 @@ class NetworkHelper {
           headers: postHeaders, contentType: Headers.formUrlEncodedContentType),
     );
     print(url);
-    print(fData.toString());
+    // print(fData.toString());
     if (response.statusCode == 200) {
       dynamic data = response.data;
       print(response.data.toString());

@@ -41,6 +41,7 @@ class CartPage extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (_) => LandingPage(
                     email: val.user,
+                    isSwitched: true,
                   ),
                 ),
               ),

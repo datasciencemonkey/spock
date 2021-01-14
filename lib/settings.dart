@@ -1,5 +1,7 @@
 // ESP Churn Prediction project- Provides 3 models
 // ---> Open Source Python, SAS ASTORE & Online Streaming only model
+import 'dart:io';
+
 const churnEspHostName =
     'http://espsixone.dlviyacluster.sashq-r.openstack.sas.com';
 const churnEspHttpPort = 60001;
@@ -20,9 +22,14 @@ const masUserName = 'sagang';
 const masPassword = 'sas123';
 
 // fraud Scoring - for Anomaly Detection
-const fraudServiceHost = 'http://localhost:8001';
+bool isAndroid() {
+  return Platform.isAndroid;
+}
+
+String fraudServiceHost =
+    isAndroid() ? 'http://10.0.2.2:8001' : 'http://localhost:80001';
 const fraudServiceName = 'fraudAnomaly';
-const fraudServiceUrl = '$fraudServiceHost/$fraudServiceName/';
+String fraudServiceUrl = '$fraudServiceHost/$fraudServiceName/';
 
 //azure cognitive services
 const cognitiveSentimentEndpoint =

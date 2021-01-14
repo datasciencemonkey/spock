@@ -14,6 +14,16 @@ final Content retailContent = Content(
       'Amazing pair of sneakers that make you feel like you\'re walking on the clouds',
 );
 
+final Content tmtContent = Content(
+  name: 'Always-On Smart Home',
+    imageUrl: Assets.alwaysOnSmartHomePackage,
+    title: 'Always-On Smart Home',
+    description:
+        'Make your home a smart home.',
+    price: '\$349.95',
+    // https://www.walmart.com/ip/Bounty-Select-A-Size-Paper-Towels-White-12-Double-Rolls/260488518
+);
+
 final Content retailContent2 = Content(
   name: 'Apple Watch Series 3',
   imageUrl: Assets.alternateHero,
@@ -229,6 +239,49 @@ final List<Content> myList = const [
       price: '\$39.88',
       description:
           'Bakes one large traditional-style waffle with five-setting browning control. The round classic waffle maker has a regulated thermostat with red and green "ready to bake/ready to eat" indicator lights. It is easy to use and clean with non-stick baking plates. This waffle maker features a beautiful brushed stainless steel housing. The slim size will sit easily on counters and tables when it is time to make some breakfast. It also makes a useful addition to your cooking gear.'),
+  Content(
+      name: 'Wifi - 1 Pack - Mesh Router',
+      imageUrl: Assets.okMeshRouter,
+      price: '\$99.92',
+      description:
+          'Wifi replaces your router and works with your modem and ISP, so you can stream, download and share without missing a beat.Compatible with 802.11ac Backward compatible with 802.11a/b/g/n networks, so you can easily upgrade. Up to 1.2 Gbps data transfer speed For fast, efficient operation. TX Beamforming technology Focuses signals directly to compatible wireless devices to help ensure dependable connectivity. 2 Gigabit Ethernet ports Offer a high-speed wired network connection and can be configured as WAN or LAN. Wi-Fi protected access Protects your network against hackers and eavesdroppers. Manage your family\'s Internet use Keep track of your family\'s screen time - pause the Internet on your kids\' devices at bedtime or during homework hours'),
+  Content(
+      name: 'Pods Pro',
+      imageUrl: Assets.okPodsPro,
+      price: '\$225.0',
+      description:
+          'Active Noise Cancellation for immersive sound.Transparency mode for hearing and connecting with the world around you.A more customizable fit for all-day comfort.Sweat and water resistant'),
+  Content(
+      name: 'Digital Assistant',
+      imageUrl: Assets.okDigitalAssistant,
+      price: '\$254.88',
+      description:
+          'Digital Assistant for the smart home. Ask and find answers to everyday questions. Fully WiFi Compatible. Compatible with other smart devices.'),
+];
+
+final List<Content> tmtList = const [
+  Content(
+    name: 'Home Security Camera',
+    imageUrl: Assets.alwaysOnHomeCam,
+    description:
+        'Communicate with people at your home from your devices with this camera.',
+    price: '\$59.95',
+  ),
+  Content(
+    name: 'A-On Streaming Video Kit',
+    imageUrl: Assets.alwaysOnStreamingVideoKit,
+    color: Colors.green,
+    description:
+        'Stream your favorite channels, shows, movies, sports, news…with this video streaming product for your TV.',
+    price: '\$9.99',
+  ),
+  Content(
+    name: 'Smart Thermostat',
+    imageUrl: Assets.alwaysOnSmartThermostat,
+    description:
+        'Create automatic and programmable temperature settings and vary based on weather conditions and other heating and cooling needs.',
+    price: '\$129.88',
+  ),
   Content(
       name: 'Wifi - 1 Pack - Mesh Router',
       imageUrl: Assets.okMeshRouter,

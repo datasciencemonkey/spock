@@ -57,7 +57,7 @@ class _LandingPageState extends State<LandingPage> {
         slivers: [
           SliverToBoxAdapter(
             child: ContentHeader(
-              featuredContent: retailContent,
+              featuredContent: widget.isSwitched? tmtContent: retailContent,
               alternateContent: retailContent2,
             ),
           ),
@@ -75,7 +75,7 @@ class _LandingPageState extends State<LandingPage> {
           SliverToBoxAdapter(
             child: ContentList(
               title: 'My Recommendations',
-              contentList: myList,
+              contentList: widget.isSwitched?tmtList:myList,
             ),
           ),
           SliverToBoxAdapter(

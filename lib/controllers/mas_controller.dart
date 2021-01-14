@@ -17,7 +17,7 @@ class MASController extends GetxController {
   Future<dynamic> getBearer() async {
     NetworkHelper networkHelper = NetworkHelper('$clickPredictionMasAuthUrl');
     dynamic rData = await networkHelper.postDioData(fData);
-    print(rData['access_token'].toString());
+    // print(rData['access_token'].toString());
     data = rData;
     update();
     return data;
