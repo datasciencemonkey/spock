@@ -1,16 +1,13 @@
-# omnikit
+# Spock
 
-A new Flutter project.
+Uses SASViya + Flutter + MSFT AI Cognitive Services to demonstrate some of the cutting edge capabilities of the SAS runtimes. Applications & Usecases handled here are specific to either retail or TMT (tech/media/telco) context, but similar interactions can be quickly conceived for any appropriate usecase across domains.
 
-## Getting Started
+Specific SAS pieces in question : SAS Viya - SAS ESP, SAS MAS
 
-This project is a starting point for a Flutter application.
+Flutter dependencies can be picked up from the pubspec.yamlfile
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Currently uses the following MSFT AI services
+1. Language Detection
+2. Sentiment Analysis
+3. NER
+4. Key Phrase Detection
