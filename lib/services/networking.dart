@@ -31,10 +31,10 @@ class NetworkHelper {
   Future postData(dynamic payload) async {
     print(url);
     print('this is from postData');
-    print(jsonEncode('grant_type=password&username=sagang&password=sas123'));
+    print(jsonEncode('grant_type=password&username=sagang&password=******'));
     print(postHeaders);
     http.Response response = await http.post(url,
-        body: jsonEncode('grant_type=password&username=sagang&password=sas123'),
+        body: jsonEncode('grant_type=password&username=sagang&password=******'),
         headers: postHeaders);
     if (response.statusCode == 200) {
       String data = response.body;
